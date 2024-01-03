@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>canvas</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<h2>Canvas</h2>
+
+<form id="form">
+	x position: <input id="xPosition" type="number">
+	y position: <input id="yPosition" type="number">
+	<br><br>
+	width: <input id="width" type="number">
+	height: <input id="height" type="number">
+	<input type="button" onclick="myFunction()" value="Draw">
+</form>	
+
+<p id="show_xPosition"></p>
+<p id="show_yPosition"></p>
+
+<canvas id="myCanvas" width="300" height="150" style="border:1px solid black"></canvas>		  
+		
+<script>
+	function myFunction() {
+		var xPos = xPosition.value;
+		var yPos = yPosition.value;
+		var w = width.value;
+		var h = height.value;
+
+		//document.getElementById("show_xPosition").innerHTML = "x position: " + xPos;
+		//document.getElementById("show_yPosition").innerHTML = "y position: " + yPos;
+
+		const canvas = document.getElementById("myCanvas");
+		const ctx = canvas.getContext("2d");
+		ctx.clearRect(0, 0, 300, 150);
+		ctx.beginPath();
+		ctx.rect(xPos, yPos, w, h);
+		ctx.stroke();
+	}
+</script>
+</body>
+</html>
